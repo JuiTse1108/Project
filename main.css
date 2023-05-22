@@ -1,0 +1,458 @@
+/* 數字 */
+@font-face {
+    font-family: custom-sans-serif;
+    src: url(./template/fonts/HelveticaNeueBold.ttf);
+    unicode-range: U+0030-0039;
+}
+
+/* 中文 */
+@font-face {
+    font-family: custom-sans-serif;
+    src: url(./template/fonts/ChiuKongGothic.ttf);
+    unicode-range: U+4E00-9FFF;
+}
+
+/* 英文 */
+@font-face {
+    font-family: custom-sans-serif;
+    src: url(./template/fonts/Avenir-Roman.ttf);
+    unicode-range: U+00-024F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: custom-sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    list-style: none;
+    letter-spacing: 3px;
+    box-sizing: border-box;
+    color: rgb(206, 176, 113);
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+.header,
+.footer {
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav,
+.footer-container {
+    width: 1200px;
+    max-width: 1200px;
+    height: 65px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hamburger-menu,
+.close-menu,
+.nav-menu,
+.logo,
+.submit-button,
+.footer-button,
+.map-button,
+i
+{
+    cursor: pointer;
+}
+
+.hamburger-menu {
+    width: 21px;
+    height: 21px;
+    display: none;
+}
+
+.hamburger-item {
+    height: 2px;
+    background-color: rgb(206, 176, 113);
+    display: block;
+    margin-top: 4px;
+}
+
+.close-menu {
+    width: 21px;
+    height: 21px;
+    display: none;
+}
+
+.close-item {
+    height: 3px;
+    background-color: rgb(206, 176, 113);
+    display: block;
+    position: relative;
+}
+
+.close-item:nth-child(odd) {
+    transform: rotate(45deg);
+    top: 9.5px;
+}
+
+.close-item:nth-child(even) {
+    transform: rotate(-45deg);
+    top: 6.5px;
+}
+
+.logo>a {
+    color: rgb(206, 176, 113);
+    vertical-align: middle;
+}
+
+.nav-menu {
+    display: flex;
+    margin-left: auto;
+}
+
+.nav-item:nth-child(3) {
+    margin-right: 40px;
+}
+
+.nav-item {
+    margin: 0 20px;
+    font-size: 20px;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.nav-button>a,
+.footer-button>a {
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(206, 176, 113);
+}
+
+.nav-button>a:hover,
+.footer-button>a:hover {
+    box-shadow: 30px;
+    opacity: 0.8;
+}
+
+
+
+.container {
+    width: 1200px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    display:flex;
+    margin-top: 10vh;
+    padding:0 10px;
+}
+
+.card:nth-child(odd)>.card-body {
+    order:2;
+}
+
+.card-body {
+    flex:calc(50% - 80px);
+    display:flex;
+    flex-wrap: wrap;
+    align-items:center;
+    margin:0 20px;
+}
+
+.card-body>* {
+    font-weight: 600;
+    text-align: center;
+}
+
+.card-body>div {
+    width:100%;
+    font-size: 24px;
+    color:rgb(185,153,125);
+    
+}
+
+.card-body>span {
+    margin-top:20px;
+    font-size: 16px;
+    color: rgb(219, 200, 182);
+    display: block;
+    width: 100%;
+}
+
+.card-aside {
+    flex:calc(50% - 80px);
+    display:flex;
+    
+    margin:0 20px;
+}
+
+.card-aside>img {
+    width:100%;
+    border-radius: 20px;
+}
+
+/* footer內容 */
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-top:50px;
+}
+
+.footer-connect {
+    vertical-align: middle;
+    margin-left: auto;
+}
+
+/* menu.html */
+
+
+.menu-card {
+    margin-top: 50px;
+    display:flex;
+}
+
+.menu-card:nth-child(even)>.menucard-aside {
+    order:2
+}
+
+.menu-card:not(:first-child) {
+    align-items: center;
+}
+
+.menucard-body {
+    width:100%;
+}
+
+.menu-top {
+    margin-bottom: 100px;
+}
+
+.menu-top>.menucard-title,
+.menu-bottom>.menucard-title{
+    text-align: center;
+    font-size:24px;
+}
+
+.menucard-aside {
+    margin:0 20px;
+}
+
+.menu-card:first-child>.menucard-aside>img {
+    margin-top: 50px;
+}
+.menucard-aside>img {
+    width:400px;
+    border-radius: 20px
+}
+
+.menucard-body>.menucard-title {
+    text-align: center;
+    font-size:24px;
+    margin-top: 20px;
+}
+
+.menucard-title {
+    font-weight: bold;
+}
+
+.menucard-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.menucard-price {
+    float: right;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.menucard-description {
+    font-size:16px;
+    font-weight: bold;
+    margin-top:10px;
+}
+
+/* location.html內容*/
+
+#map {
+    width:60%;
+    height:40vh;
+    margin:20px 60px;
+}
+
+.map-button {
+    display:flex;
+    justify-content: space-between;
+}
+
+.map-item {
+    text-align: center;
+    font-weight: bold;
+    border:2px solid rgb(206, 176, 113);
+    border-radius: 10px;
+    margin:40px 20px;
+    padding:10px;
+    flex:calc(25% - 80px)
+}
+
+.map-item:hover {
+    color:rgb(0,0,0);
+    background-color: rgb(206, 176, 113);
+}
+
+.gap {
+    border-color:rgb(206, 176, 113)
+}
+
+.location-container {
+    display:flex;
+    align-items: center;
+}
+
+.location-info {
+    width:70%;
+}
+
+.location-title,.location-address,.location-telephone,.location-map {
+    margin:60px 60px;
+}
+
+i,.location-info>li,.location-info>li>span {
+    color:rgb(185,153,125);
+}
+
+.location-info>li>span {
+    color: rgb(219, 200, 182);
+}
+
+.location-info>li,.location-info>li>span {
+    font-weight: bold;
+}
+
+#loc-map {
+    text-decoration: underline;
+    font-weight:bold;
+    color: rgb(219, 200, 182);
+}
+
+/* contact.html內容 */
+.form-title-en,
+.form-title-zh {
+    font-size: 28px;
+    width: 100%;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.form {
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+}
+
+.form-cell {
+    margin: 20px;
+    flex: calc(50% - 40px);
+}
+
+.form-cell>*,
+select>option {
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.form-cell>input,
+option,
+textarea,
+select {
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid rgb(206, 176, 113)
+}
+
+.form-cell>input,
+textarea,
+select {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+.form-cell>input,
+select,
+textarea {
+    margin-top: 10px;
+}
+
+.form-cell>select,
+input,
+textarea {
+    padding-left: 10px;
+}
+
+.form-cell>select>option {
+    height: 24px;
+}
+
+.form-cell>textarea {
+    padding-top: 10px;
+}
+
+.form-cell>textarea {
+    height: 300px;
+}
+
+.submit-button {
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(206, 176, 113);
+}
+
+/* 背景圖設定 */
+.main,
+.menu,
+.contact,
+.location {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.8;
+}
+
+.main,
+.contact {
+    background-image: url(./template/img/main.jpg);
+}
+
+.menu {
+    background-image: url()
+}
+
+.contact {
+    background-image: url()
+}
+
+.location {
+    background-image: url(./template/img/location.jpg)
+}

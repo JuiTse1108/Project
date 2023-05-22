@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./template/css/xl.css" media="screen and (max-width:1200px)">
+  <link rel="stylesheet" href="./template/css/lg.css" media="screen and (max-width:992px)">
+  <link rel="stylesheet" href="./template/css/sm.css" media="screen and (max-width:576px)">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+  <script>
+    
+    
+  </script>
+  <script>
+    function Location(county, sitename, lat, lng) {
+      this.county = county;
+      this.sitename = sitename;
+      this.lat = lat;
+      this.lng = lng;
+      this.title = county + sitename;
+      this.center = { lat: parseFloat(lat), lng: parseFloat(lng) };
+    }
+
+    let Taipei = { lat: 25.0343360441454, lng: 121.56409629929324 }
+    let newTaipei = { lat: 25.01778855090497, lng: 121.47902638210132 }
+    let Taichung = { lat: 24.16495326935366, lng: 120.64347479742673 }
+    let Kaohsuing = { lat: 22.595082381131554, lng: 120.30655765321909 }
+
+    function panTo(site) {
+      map.panTo(site)
+      fetch("map.json")
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (jsonObj) {
+          let data = jsonObj.records
+          let dataArray = []
+          for (n = 0; n < data.length; n++) {
+            dataArray.push(
+              [
+                data[n].sitename,
+                data[n].location,
+                data[n].telephone,
+                data[n].latitude,
+                data[n].longitude
+              ]
+            )
+          }
+          let taipeiInfo = dataArray[0]
+          let newTaipeiInfo = dataArray[1]
+          let taichungInfo = dataArray[2]
+          let kaohsuingInfo = dataArray[3]
+
+          let locSitename = document.getElementById('loc-sitename')
+          let locAddress = document.getElementById('loc-address')
+          let locTelephone = document.getElementById('loc-telephone')
+          let locMap = document.getElementById('loc-map')
+          let website = "https://www.google.com/maps/search/?api=1&query="
+          if (site.lat === 25.0343360441454 && site.lng === 121.56409629929324) {
+            locSitename.innerHTML = taipeiInfo[0]
+            locAddress.innerHTML = taipeiInfo[1]
+            locTelephone.innerHTML = taipeiInfo[2]
+            locMap.setAttribute('href', website + taipeiInfo[3] + "," + taipeiInfo[4])
+          } else if (site.lat === 25.01778855090497 && site.lng === 121.47902638210132) {
+            locSitename.innerHTML = newTaipeiInfo[0]
+            locAddress.innerHTML = newTaipeiInfo[1]
+            locTelephone.innerHTML = newTaipeiInfo[2]
+            locMap.setAttribute('href', website + newTaipeiInfo[3] + "," + newTaipeiInfo[4])
+          } else if (site.lat === 24.16495326935366 && site.lng === 120.64347479742673) {
+            locSitename.innerHTML = taichungInfo[0]
+            locAddress.innerHTML = taichungInfo[1]
+            locTelephone.innerHTML = taichungInfo[2]
+            locMap.setAttribute('href', website + taichungInfo[3] + "," + taichungInfo[4])
+          } else if (site.lat === 22.595082381131554 && site.lng === 120.30655765321909) {
+            locSitename.innerHTML = kaohsuingInfo[0]
+            locAddress.innerHTML = kaohsuingInfo[1]
+            locTelephone.innerHTML = kaohsuingInfo[2]
+            locMap.setAttribute('href', website + kaohsuingInfo[3] + "," + kaohsuingInfo[4])
+          }
+        })
+
+    }
+    window.onload = function () {
+      switchMenu()
+      const hours = new Date().getHours()
+        if (hours >= 5 && hours <=18) {
+        const allElements = document.querySelectorAll('*');
+        const mapItem = document.querySelectorAll('.map-item')
+        const locsiteName = document.getElementById('loc-sitename')
+        const locAddress = document.getElementById('loc-address')
+        const locTelephone = document.getElementById('loc-telephone')
+        const locMap = document.getElementById('loc-map')
+        const gap = document.querySelector('.gap')
+        const navButton = document.querySelector('.nav-button>a')
+        const footerButton = document.querySelector('.footer-button>a')
+        const hamburgerItem = document.querySelectorAll('.hamburger-item')
+        const closeItem = document.querySelectorAll('.close-item')
+        // *的設定
+        for (n = 0; n < allElements.length; n++) {
+            allElements[n].style.color = 'rgb(107,74,74)'
+            allElements[n].style.backgroundColor = 'rgb(218, 186, 149)'
+        }
+        // nav-button 與 footer-button 的設定
+        navButton.style.backgroundColor = 'rgba(0,0,0,0.8)'
+        navButton.style.color = 'rgb(219, 200, 182)'
+        footerButton.style.backgroundColor = 'rgba(0,0,0,0.8)'
+        footerButton.style.color = 'rgb(219, 200, 182)'
+        // hamburger-item 的設定
+        for (n = 0; n < hamburgerItem.length; n++) {
+            hamburgerItem[n].style.backgroundColor = 'rgb(107, 74, 74)'
+        }
+        // close-item 的設定
+        for (n = 0; n < closeItem.length; n++) {
+            closeItem[n].style.backgroundColor = 'rgb(107, 74, 74)'
+        }
+
+        // map-item 的設定
+        for(n= 0;n<mapItem.length;n++) {
+          mapItem[n].style.borderColor = 'rgb(107, 74, 74)'
+        }
+
+        // loc-sitename 的設定
+        locsiteName.style.color = 'rgb(174, 100, 102)'
+        locAddress.style.color = 'rgb(174, 100, 102)'
+        locTelephone.style.color = 'rgb(174, 100, 102)'
+        locMap.style.color = 'rgb(174, 100, 102)'
+    
+        gap.style.borderColor = 'rgb(174, 100, 102)'
+      }
+      fetch("map.json")
+        .then(function (response) {
+          return response.json()
+        })
+        .then(function (jsonObj) {
+          let records = [];
+          jsonObj["records"].forEach(function (rd) {
+            records.push(new Location(rd.county, rd.sitename, rd.latitude, rd.longitude))
+          });
+          // pinMarker(records);
+          pinMarkerCluster(records)
+        })
+    }
+
+    function pinMarker(records) {
+      records.forEach(function (rd) {
+        new google.maps.Marker({
+          position: rd.center,
+          map: map,
+          label: rd.sitename
+        })
+      })
+    }
+
+    function pinMarkerCluster(records) {
+      let markers = []
+      records.forEach(function (rd) {
+        markers.push(
+          new google.maps.Marker({
+            position: rd.center,
+            map: map,
+            label: rd.sitename
+          })
+        )
+      })
+      new markerClusterer.MarkerClusterer({ markers, map })
+    }
+
+    let map;
+
+    function initMap() {
+
+      let center = { lat: 24.16495326935366, lng: 120.64347479742673 };
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: center,
+        zoom: 8,
+      });
+
+    }
+
+    window.initMap = initMap;
+
+    function switchMenu() {
+    const hamburgerMenu = document.getElementById("hamburger-menu")
+    const closeMenu = document.getElementById('close-menu')
+    const navMenu = document.getElementById('nav-menu')
+    const navItem = document.querySelectorAll('.nav-item')
+
+    hamburgerMenu.addEventListener('click', function () {
+        hamburgerMenu.style.display = 'none'
+        if (hamburgerMenu.style.display === 'none') {
+            closeMenu.style.display = 'block'
+            navMenu.style.display = 'block'
+            navMenu.style.position = 'absolute'
+            navMenu.style.top = '100px'
+            navMenu.style.left = '115px'
+            navMenu.style.textAlign = 'center'
+            navMenu.style.backgroundColor = 'rgba(218, 186, 149,0.8)'
+
+            for (n = 0; n < navItem.length; n++) {
+                navItem[n].style.width = '200px'
+                navItem[n].style.margin = '0'
+                navItem[n].style.opacity = '0.8'
+            }
+            if (closeMenu.style.display === 'block') {
+                closeMenu.addEventListener('click', function () {
+                    closeMenu.style.display = 'none'
+                    hamburgerMenu.style.display = 'block'
+                    navMenu.style.display = 'none'
+                })
+            }
+        }
+        window.addEventListener('resize',function() {
+            
+            if(window.innerWidth > 992) {
+                hamburgerMenu.style.display = 'none';
+                closeMenu.style.display = 'none';
+            }else {
+                navMenu.style.display = 'flex'
+                navMenu.style.position = 'initial'
+                navMenu.style.width = '250px'
+            }
+        })
+    })
+}
+  </script>
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="hamburger-item"></span>
+        <span class="hamburger-item"></span>
+        <span class="hamburger-item"></span>
+      </div>
+      <div class="close-menu" id="close-menu">
+        <span class="close-item"></span>
+        <span class="close-item"></span>
+      </div>
+      <div class="logo">
+        <a href="index.html">Logo</a>
+      </div>
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+          <a href="location.html">Location</a>
+        </li>
+        <li class="nav-item">
+          <a href="menu.html">Menu</a>
+        </li>
+      </ul>
+      <div class="nav-button">
+        <a href="location.html">Book</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="location"></main>
+  <div class="container">
+    
+      <div class="map-button">
+        <a onclick="panTo(Taipei)" class="map-item">台北101店</a>
+        <a onclick="panTo(newTaipei)" class="map-item">新北新板店</a>
+        <a onclick="panTo(Taichung)" class="map-item">台中中港店</a>
+        <a onclick="panTo(Kaohsuing)" class="map-item">高雄夢時代店</a>
+      </div>
+   
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQUjSFJEo1tbZmuE04BUNG6xXG8x-NlZs&callback=initMap">
+      </script>
+    <hr class="gap">
+    <div class="location-container">
+      <ul class="location-info">
+        <li class="location-title">
+          <i class="bi bi-clipboard"></i> 店名 : <span id="loc-sitename"></span>
+        </li>
+        <li class="location-address">
+          <i class="bi bi-shop"></i> 地址 : <span id="loc-address"></span>
+        </li>
+        <li class="location-telephone">
+          <i class="bi bi-telephone-fill"></i> 電話 : <span id="loc-telephone"></span>
+        </li>
+        <li class="location-map">
+          <i class="bi bi-pin-map-fill"></i> Google Map : <span><a id="loc-map" href="">線上查看</a></span>
+        </li>
+      </ul>
+      <div id="map"></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-button">
+            <a href="contact.html">Contact Us</a>
+            
+        </div>
+        <div class="footer-connect">
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>

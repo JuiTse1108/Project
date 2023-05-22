@@ -1,0 +1,184 @@
+{
+    "desserts": [
+        {
+            "name": "黏性太妃布丁",
+            "description": "牛奶糖冰淇淋",
+            "price": "$13.95"
+        },
+        {
+            "name": "鹽烤花生豪華",
+            "description": "焦糖花生脆片，花生奶油軟糕，鹽烤花生冰淇淋",
+            "price": "$12.95"
+        },
+        {
+            "name": "巧克力原罪蛋糕",
+            "description": "焦糖慕斯，巧克力義式冰淇淋",
+            "price": "$12.95"
+        },
+        {
+            "name": "椰子三重奏",
+            "description": "椰子冰沙，百香果焦糖，椰子蛋糕",
+            "price": "$11.95"
+        }
+    ],
+    "main": {
+        "冰鎮海鮮": [
+            {
+                "name": "生蠔*",
+                "description": "廚師每日選擇，香港香醋，金雞尾酒醬",
+                "price": [
+                    "半打 $24.95",
+                    "一打 $46.95"
+                ]
+            },
+            {
+                "name": "蝦仁開胃菜",
+                "description": "金雞尾酒醬",
+                "price": "$21.95"
+            }
+        ],
+        "前菜": [
+            {
+                "name": "煎鵝肝*",
+                "description": "燉櫻桃，蘇格蘭短餅，焦糖杏仁",
+                "price": " $ 29.95"
+            },
+            {
+                "name": "香煎帶子*",
+                "description": "芹根，燴培根小肉塊，醃青蘋果",
+                "price": "$ 26.95"
+            },
+            {
+                "name": "龍蝦燴飯*",
+                "description": "奶油煮龍蝦尾，松露燴飯，脆洋蔥",
+                "price": "$ 29.95"
+            },
+            {
+                "name": "牛肉塔塔*",
+                "description": "皮埃蒙特牛肉，第戎芥末蛋黃蒜泥醬，黑松露魚子醬，低溫蛋黃",
+                "price": "$ 26.95"
+            }
+        ],
+        "沙拉湯": [
+            {
+                "name": "金黃甜菜沙拉",
+                "description": "希臘乳酪，金橘，開心果穀物，白色香醋油醋汁",
+                "price": "$ 22.95"
+            },
+            {
+                "name": "藜麥沙拉",
+                "description": "蜜脆蘋果，乾果和蔓越莓，焦糖胡桃，軟芝士",
+                "price": "$ 19.95"
+            },
+            {
+                "name": "凱薩沙拉",
+                "description": "帕爾馬干酪薄脆餅，蒜味麵包丁，檸檬皮",
+                "price": "$ 19.95"
+            },
+            {
+                "name": "南瓜湯",
+                "description": "楓糖烤櫻桃南瓜，青蘋果，烤南瓜子仁，vadouvon酸奶油",
+                "price": "$ 16.95"
+            }
+        ],
+        "主菜": [
+            {
+                "name": "威靈頓牛排*",
+                "description": "馬鈴薯泥，烤根莖蔬菜，紅酒汁",
+                "price": "$ 69.95"
+            },
+            {
+                "name": "脆皮鮭魚*",
+                "description": "貝爾加扁豆，刨芹菜沙拉，柑橘草本奶油醬汁",
+                "price": "$ 38.95"
+            },
+            {
+                "name": "菲力牛排*",
+                "description": "8 盎司聖塔卡羅塔牛肉，葡萄蕃茄，伯那西醬",
+                "price": "$ 60.95"
+            },
+            {
+                "name": "乾式熟成紐約牛排*",
+                "description": "14 盎司，炒石臼胡椒，紅酒汁",
+                "price": "$ 78.95"
+            },
+            {
+                "name": "燉煮牛小排",
+                "description": "油封蜜汁馬鈴薯蛋糕，Bloomsdale 菠菜，酥脆洋蔥圈，牛肉汁",
+                "price": "$ 47.95"
+            },
+            {
+                "name": "自家養殖雞肉斯卡皮尼",
+                "description": "烤小型馬鈴薯，洋蓟，羽衣甘藍，松露雞汁",
+                "price": "$ 32.95"
+            },
+            {
+                "name": "焗烤通心粉和芝士",
+                "description": "煙燻豪達芝士，脆煙肉",
+                "price": "$ 14.95"
+            },
+            {
+                "name": "烤球芽甘藍",
+                "description": "楓糖醬油汁，醃辣椒，帶糖燻培根",
+                "price": "$ 14.95"
+            },
+            {
+                "name": "野菌菇",
+                "description": "蔥白酒汁",
+                "price": "$ 14.95"
+            },
+            {
+                "name": "馬鈴薯泥",
+                "description": "鮮奶油，香蔥",
+                "price": "$ 14.95"
+            }
+        ]
+    },
+    "cocktails": [
+        {
+            "name": "LA DIABLA",
+            "description": "靜待的基督、萊姆汁、亞柏、杏仁糊、西柚汁、蛋白、煙燻辣椒粉、鹽邊緣",
+            "price": "$21.95"
+        },
+        {
+            "name": "MEET YOUR MAKER",
+            "description": "Maker's Mark 波旁威士忌、康頓田莊酒、薄荷、蘋果、草莓、肉桂",
+            "price": "$21.95"
+        },
+        {
+            "name": "NOTES FROM GORDON",
+            "description": "Plymouth 乾式琴酒、綠茶、香茅、桃子、檸檬",
+            "price": "$20.95"
+        },
+        {
+            "name": "FEAR & LOATHING",
+            "description": "Zignum 重機蒸餾酒、Luxardo 櫻桃酒、血橙汁、鳳梨、檸檬",
+            "price": "$20.95"
+        },
+        {
+            "name": "THE PITCHFORK",
+            "description": "Bulleit 波旁威士忌、Giffard 西柚酒、Fonseca 10年特級波特酒、檸檬、蛋白",
+            "price": "$20.95"
+        },
+        {
+            "name": "SMOKE ON THE BLVD",
+            "description": "Woodford 美國威士忌、亞柏、Amaro Averna 苦艾酒、甜味酒、櫻桃木燻",
+            "price": "$21.95"
+        },
+        {
+            "name": "THE DUCHESS",
+            "description": "Empress 1908 琴酒、Fever-Tree 接骨木花汁、杜松、迷迭香",
+            "price": "$20.95"
+        },
+        {
+            "name": "YUKI ONNA",
+            "description": "Absolut Citron 伏特加、Huana Guanabana 蘆薈果汁、大黃根泥、檸檬苦艾酒",
+            "price": "$20.95"
+        },
+        {
+            "name": "ANCHO PALOMA",
+            "description": "靜待的基督銀色版、Ancho Reyes 辣椒酒、St. Germain 香芹酒、龍舌蘭糖漿、葡萄柚、萊姆",
+            "price": "$20.95"
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+.nav {
+    width:80%
+}
+
+.nav-menu {
+    display: none;
+}
+
+.hamburger-menu {
+    display: block;
+    width:30px;
+    height:30px;
+}
+
+.hamburger-item {
+    height:4px;
+}
+
+.close-menu {
+    width:30px;
+    height:30px;
+    display: none;
+}
+
+.close-item {
+    height:4px;
+}
+
+.logo>a {
+    font-size:2rem
+}
+
+.container {
+    width:80%
+}
+/* main內容 */
+.card {
+    flex-wrap:wrap
+}
+
+.card-body {
+    text-align: center;
+    margin:40px 0;
+}
+
+.card-body>div {
+    height:60px;
+    margin:20px 0;
+    font-size:40px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.card-body>span {
+    height:60px;
+    font-size: 32px;
+    font-weight: bold;
+    margin:20px;
+    line-height: 60px;
+}
+
+.card-aside {
+   flex:100%
+}
+
+.card:nth-child(even)>.card-body {
+    order:1;
+}
+/* location.html內容 */
+.map-button {
+    align-items: center;
+}
+
+.map-item {
+    font-size: 18px;
+}
+
+.location-container {
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.location-info {
+    width:100%;
+    order:2;
+}
+
+#map{
+    width:100%;
+}
+
+/* menu.html內容 */
+.menu-card {
+    flex-wrap: wrap;
+}
+
+.menucard-aside {
+    width:100%;
+    height: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.menu-card:nth-child(even)>.menucard-body {
+    order:2
+}
